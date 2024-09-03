@@ -10,7 +10,7 @@ import cloudinary from 'cloudinary'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 8000
+const port = process.env.PORT || 8000
 const dburl = 'mongodb://localhost:27017/schoolManagement'
 app.use(cors())
 app.use(express.json())
