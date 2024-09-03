@@ -9,7 +9,6 @@ const handleGetStudentTeacher = async (req, res) => {
       teacherClass: student.studentClass,
     });
 	let i = teacher.filter(v=>v.teacherDesignation === 'General' || student.studentDesignaion)
-console.log(student.studentDesignaion)
     res.send(i);
   } catch (err) {
     console.log(err);

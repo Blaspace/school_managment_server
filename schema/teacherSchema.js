@@ -11,7 +11,8 @@ const teacherSchema = new Schema({
     teacherSubject:String,
     teacherPhoneNumber:String,
     schoolId:String,
-    accessToken:String
+    accessToken:String,
+    image: String,
 })
 
 const Teacher = model('teacher', teacherSchema)

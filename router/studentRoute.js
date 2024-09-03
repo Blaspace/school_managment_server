@@ -9,6 +9,10 @@ import handleStudentLogin from "../controlers/students/studentLogin.js";
 import handleGetStudentTeacher from "../controlers/students/getStudentTeacher.js";
 import handleStudentLogout from "../controlers/students/studentLogout.js";
 import handleGetBilling from "../controlers/students/getSchoolBilling.js";
+import handleUploadImage from "../controlers/students/ImageUpload.js";
+import upload from "../middleware/imageUploadMiddleware.js";
+import handleGetStudentMaterial from "../controlers/students/getStudentMaterial.js";
+import handleMakePayment from "../controlers/students/makePayment.js";
 
 const studentRoute = express.Router();
 
@@ -18,6 +22,11 @@ studentRoute.get(
   "/student/current",
   studentAuthentication,
   handleGetCurrentStudent
+);
+studentRoute.get(
+  "/student/material",
+  studentAuthentication,
+  handleGetStudentMaterial
 );
 
 studentRoute.get(
@@ -42,6 +51,16 @@ studentRoute.post(
     "/student/notify/:id",
     studentAuthentication,
     handleGetStudentNotification
+  );
+  studentRoute.post(
+    "/student/pay",
+    studentAuthentication,
+    handleMakePayment
+  );
+  studentRoute.post(
+    "/student/image",
+    studentAuthentication,upload,
+    handleUploadImage
   );
 
 studentRoute.get(

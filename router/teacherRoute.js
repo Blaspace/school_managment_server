@@ -11,12 +11,36 @@ import handleGetTeacherNotification from "../controlers/teachers/getTeacherNotif
 import handleTeacherLogout from "../controlers/teachers/teacherLogout.js";
 import handleUploadResult from "../controlers/teachers/UploadResult.js";
 import handleGetTeacherResult from "../controlers/teachers/getTeacherResult.js";
+import handleUpload from "../controlers/teachers/teacherImageUpload.js";
+import upload from "../middleware/imageUploadMiddleware.js";
+import handleUploadMaterial from "../controlers/teachers/UploadMaterial.js";
+import handleGetMaterial from '../controlers/teachers/getMateria.js'
 
 const teacherRoute = express.Router();
 
 teacherRoute.post("/teacher/notify/:id", teacherAuthentication, handleNotify);
 
 teacherRoute.post("/teacher/result", teacherAuthentication, handleUploadResult);
+
+teacherRoute.post(
+  "/teacher/image",
+  teacherAuthentication,
+  upload,
+  handleUpload
+);
+
+teacherRoute.post(
+  "/teacher/material",
+  teacherAuthentication,
+  upload,
+  handleUploadMaterial
+);
+
+teacherRoute.get(
+  "/teacher/material",
+  teacherAuthentication,
+  handleGetMaterial
+);
 
 teacherRoute.get(
   "/teacher/result",

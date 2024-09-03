@@ -13,6 +13,7 @@ const studentSchema = new Schema({
   schoolId: String,
   studentDesignaion: String,
   accessToken: String,
+  image: String,
 });
 
 const Student = model("student", studentSchema);

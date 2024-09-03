@@ -7,7 +7,8 @@ const schoolSchema =new mongoose.Schema({
     password:String,
     numberOfStaff: Number,
     schoolAddress: String,
-    accessToken:String
+    accessToken:String,
+    logo: String,
 })
 
  const School = mongoose.model('school', schoolSchema)

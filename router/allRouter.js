@@ -16,10 +16,17 @@ import handleAddBilling from "../controlers/schools/addBilling.js";
 import handleGetBilling from "../controlers/schools/getBilling.js";
 import handleSchoolNotification from "../controlers/schools/schoolNotification.js";
 import handleGetstudentResult from "../controlers/students/getStudentResult.js";
+import handleUploadSchoolLogo from "../controlers/schools/uploadSchoolLogo.js";
+import upload from "../middleware/imageUploadMiddleware.js";
+import handleDownload from "../controlers/schools/downloadMaterial.js";
 
 const route = express.Router();
 
 route.post("/school/add", handleAddSchool);
+
+route.get("/download/:file", handleDownload);
+
+route.post("/school/logo",  upload, Authentication, handleUploadSchoolLogo);
 
 route.get("/student", Authentication, handleGetStudent);
 
