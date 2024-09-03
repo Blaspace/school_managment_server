@@ -28,8 +28,8 @@ const handleMakePayment = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: 'http://localhost:3000/student/dashboard/billing',
-      cancel_url: 'http://localhost:3000/student/dashboard/billing',
+      success_url: `${process.env.DOMAIN}/student/dashboard/billing`,
+      cancel_url: `${process.env.DOMAIN}/student/dashboard/billing`,
     });
     res.send({ success: session.url });
   } catch (error) {

@@ -11,6 +11,7 @@ dotenv.config()
 
 const app = express()
 
+const dburl = 'mongodb://localhost:27017/schoolManagement'
 app.use(cors())
 app.use(express.json())
 app.use(route)
