@@ -10,7 +10,7 @@ import cloudinary from 'cloudinary'
 dotenv.config()
 
 const app = express()
-
+const PORT = process.env.PORT || 8000
 const dburl = 'mongodb://localhost:27017/schoolManagement'
 app.use(cors())
 app.use(express.json())
@@ -29,7 +29,7 @@ app.get('/',(req,res)=>{
 
 mongoose.connect(process.env.DB_URL)
 .then(()=>{
-    app.listen('8000', ()=>{
+    app.listen(port, ()=>{
         console.log('server listening on port 8000')
     })
 })
