@@ -10,9 +10,9 @@ const handleUploadImage = async (req, res) => {
       folder: "/teacherManagment/",
       use_filename: true,
     });
-    const i = await Teacher.findByIdAndUpdate(teacher._id, { logo: result.url });
+    const i = await Teacher.findByIdAndUpdate(teacher._id, { image: result.url });
     fs.unlinkSync(req.file.path)
-    res.send(result.url);
+    res.send({image: result.url});
   } catch (err) {
     console.log(err);
   }
