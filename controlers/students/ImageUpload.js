@@ -12,7 +12,7 @@ const handleUploadImage = async (req, res) => {
     });
     const i = await Student.findByIdAndUpdate(student._id, { image: result.url });
     fs.unlinkSync(req.file.path)
-    res.send(result.url);
+    res.send({image:result.url});
   } catch (err) {
     console.log(err);
   }
