@@ -7,7 +7,7 @@ const handleLogin =async(req, res)=>{
     const school =await School.findOne({schoolEmail: email})
     if(!school) res.status(401).send({msg: "invalid password/school name"})
     try{
-       const isPassword =await bcrypt.compare(password, school.password)
+       const isPassword = bcrypt.compare(password, school.password)
        if(!isPassword){
         return res.status(401).send({msg: 'ivalid password/school name'})
        }

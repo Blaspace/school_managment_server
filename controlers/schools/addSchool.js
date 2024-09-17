@@ -14,7 +14,7 @@ const handleAddSchool = async(req, res)=>{
         const salt =await bcrypt.genSalt(10)
         const hashedPassword =await bcrypt.hash(schoolData.password, salt)
         const newSchool =await School.create({...schoolData, password: hashedPassword})
-        const accessToken = await jwt.sign({id: newSchool._id}, process.env.JWT_SECRETE, {
+        const accessToken = jwt.sign({id: newSchool._id}, process.env.JWT_SECRETE, {
             expiresIn: '15d'
         })
         const updatedSchool =await School.findByIdAndUpdate(newSchool._id, {accessToken})
