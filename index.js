@@ -27,7 +27,7 @@ app.get('/',(req,res)=>{
     res.send({msg:'welcome to my school management sytem api'})
 })
 
-mongoose.connect(dburl)
+mongoose.connect(process.env.DB_URL)
 .then(()=>{
     app.listen(port, ()=>{
         console.log('server listening on port 8000')
